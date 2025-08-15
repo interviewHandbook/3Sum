@@ -45,32 +45,32 @@ public class FifthApproach {
 				continue;
 			}
 
-			int left = i+1;
-			int right = nums.length-1;
+			int j = i+1;
+			int k = nums.length-1;
 
-			while(left < right) {
+			while(j < k) {
 
-				int sum = nums[i] + nums[left] + nums[right];
+				int sum = nums[i] + nums[j] + nums[k];
 
 				if(sum == 0) {
 
-					threeSum.add(Arrays.asList(nums[i] , nums[left] , nums[right]));
+					threeSum.add(Arrays.asList(nums[i] , nums[j] , nums[k]));
 
 					// skip duplicates
-					while (left < right && nums[right] == nums[right - 1]) right--;
-					while (left < right && nums[left] == nums[left + 1]) left++; 
+					while (j < k && nums[k] == nums[k - 1]) k--;
+					while (j < k && nums[j] == nums[j + 1]) j++; 
 
-					left++;
-					right--;
+					j++;
+					k--;
 
 				} //endif
 				else if(sum < 0) {
 
-					left++;
+					j++;
 				}
 				else if(sum > 0) {
 
-					right--;
+					k--;
 				}
 
 			} // endwhile
